@@ -15,7 +15,7 @@ app.use(express.static(publicDirectoryPath));
 
 io.on('connection', (socket) => {
     console.log("New WebSocket connection");
-    socket.emit("message", "Welcome to the chat app, this is a test message!");
+    socket.emit("message", "Welcome!");
     socket.broadcast.emit("message", "A new user has joined the chat!");
 
     socket.on("sendMessage", (message, callback) => {
