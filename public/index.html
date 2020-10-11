@@ -8,11 +8,11 @@
 <body>
     <h1>Test Chat App!</h1>
     <p>Enter your message below</p>
-    <form class="msg-form">
-        <input class="msg-input">
+    <form class="message-form">
+        <input class="message-input">
         <button>Send</button>
     </form>
-    <button class="share-location-btn">Share Location</button>
+    <button class="share-location-button">Share Location</button>
     <hr>
 
     <div class="messages"></div>
@@ -20,6 +20,11 @@
     <script class="message-template" type="text/html">
         <div >
             <p>{{message}}</p>
+        </div>
+    </script>
+    <script class="location-message-template" type="text/html">
+        <div >
+            <p><a href="{{url}}" target="_blank">My location</a></p>
         </div>
     </script>
 

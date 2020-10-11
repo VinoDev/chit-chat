@@ -1,12 +1,13 @@
 const socket = io()
 
-const msgForm = document.querySelector('.msg-form');
-const msgInput = document.querySelector('.msg-input');
-const msgBtn = msgForm.querySelector('button');
-const shareLocationBtn = document.querySelector('.share-location-btn');
+const messageForm = document.querySelector('.message-form');
+const messageInput = document.querySelector('.message-input');
+const messageButton = messageForm.querySelector('button');
+const shareLocationButton = document.querySelector('.share-location-button');
 const messages = document.querySelector('.messages');
 
 const messageTemplate = document.querySelector('.message-template').innerHTML;
+const locationMessageTemplate = document.querySelector('.location-message-template').innerHTML;
 
 socket.on("message", (message) => {
     const html = Mustache.render(messageTemplate, {
@@ -16,16 +17,24 @@ socket.on("message", (message) => {
     messages.insertAdjacentHTML('beforeend', html);
 })
 
-msgForm.addEventListener('submit', (e) => {
+socket.on("locationMessage", (url) => {
+    const html = Mustache.render(locationMessageTemplate, {
+        url
+    })  
+
+    messages.insertAdjacentHTML('beforeend', html);
+})
+
+messageForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    msgBtn.setAttribute("disabled", "disabled");
+    messageButton.setAttribute("disabled", "disabled");
 
-    socket.emit("sendMessage", msgInput.value, (error) => {
+    socket.emit("sendMessage", messageInput.value, (error) => {
 
-        msgBtn.removeAttribute("disabled");
-        msgInput.focus();
-        msgInput.value = "";
+        messageButton.removeAttribute("disabled");
+        messageInput.focus();
+        messageInput.value = "";
 
         if (error)
             return console.log(error);
@@ -35,18 +44,18 @@ msgForm.addEventListener('submit', (e) => {
 
 })
 
-shareLocationBtn.addEventListener("click", () => {
+shareLocationButton.addEventListener("click", () => {
     if (!navigator.geolocation)
         return alert("Geolocation is not supported by your browser")
 
-    shareLocationBtn.setAttribute("disabled", "disabled");
+    shareLocationButton.setAttribute("disabled", "disabled");
 
     navigator.geolocation.getCurrentPosition((position) => {
         socket.emit("sentLocation", {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }, () => {
-            shareLocationBtn.removeAttribute("disabled");
+            shareLocationButton.removeAttribute("disabled");
 
             console.log("Location shared!");
         })
