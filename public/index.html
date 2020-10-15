@@ -2,29 +2,45 @@
 <html>
 
 <head>
-
+    <title>Node Chat App!</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-    <h1>Test Chat App!</h1>
-    <p>Enter your message below</p>
-    <form class="message-form">
-        <input class="message-input">
-        <button>Send</button>
-    </form>
-    <button class="share-location-button">Share Location</button>
-    <hr>
+    <div class="chat">
+        <div class="chat__sidebar">
+            <h1>Node Chat App!</h1>
+        </div>
+        <div class="chat__main">
+            <div class="messages chat__messages"></div>
 
-    <div class="messages"></div>
+            <div class="compose">
+                <form class="message-form">
+                    <input class="message-input" placeholder="Type a message">
+                    <button>Send</button>
+                </form>
+                <button class="share-location-button">Share Location</button>
+            </div>
+        </div>
+    </div>
 
     <script class="message-template" type="text/html">
-        <div >
-            <p>{{createdAt}} - {{message}}</p>
+        <div class="message">
+            <p>
+                <span class="message__name">Name</span>
+                <span class="message__meta">{{createdAt}}</span>
+            </p>
+            <p>{{message}}</p>
         </div>
     </script>
     <script class="location-message-template" type="text/html">
-        <div >
-            <p>{{createdAt}} - <a href="{{url}}" target="_blank">My location</a></p>
+        <div class="message">
+            <p>
+                <span class="message__name">Name</span>
+                <span class="message__meta">{{createdAt}}</span>
+            </p>
+            <p><a href="{{url}}" target="_blank">My location</a></p>
         </div>
     </script>
 
