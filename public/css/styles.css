@@ -40,7 +40,7 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #7C5CBF;
+    background: #000569;
     border: none;
     color: white;
     font-size: 16px;
@@ -48,12 +48,12 @@ button {
 }
 
 button:hover {
-    background: #6b47b8;
+    background: #1a1f83;
 }
 
 button:disabled {
     cursor: default;
-    background: #7c5cbf94;
+    background: #969bff;
 }
 
 /* Join Page Styles */
@@ -158,6 +158,15 @@ button:disabled {
 
 .compose button {
     font-size: 14px;
+    border-radius: 100px;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.compose .icon {
+    width: 16px;
+    height: 16px;
+    filter: invert(100%) sepia(2%) saturate(495%) hue-rotate(224deg) brightness(115%) contrast(87%);
 }
 
 /* Chat Sidebar Styles */
@@ -183,7 +192,18 @@ button:disabled {
 }
 
 .user{
-    border-left: #6b47b8 4px solid;
+    border-left: #1a1f83 4px solid;
     padding-left: 10px;
     margin-bottom: 10px;
+}
+
+@media (max-width: 768px){
+    .chat__sidebar {
+        display: none;
+    }
+
+    .chat__main {
+        height: 100vh;   
+    }
+
 }

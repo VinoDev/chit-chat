@@ -3,14 +3,14 @@
 
 <head>
     <title>Node Chat App!</title>
-    <link rel="icon" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="/img/comments-regular.svg">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
     <div class="chat">
         <div id="sidebar" class="chat__sidebar">
-
         </div>
         <div class="chat__main">
             <div class="messages chat__messages"></div>
@@ -18,9 +18,9 @@
             <div class="compose">
                 <form class="message-form">
                     <input class="message-input" placeholder="Type a message" required autocomplete="off">
-                    <button>Send</button>
+                    <button><img class="icon" src="./img/reply-solid.svg"/></button>
                 </form>
-                <button class="share-location-button">Share Location</button>
+                <button class="share-location-button"><img class="icon" src="./img/map-marker-alt-solid.svg"/></button>
             </div>
         </div>
     </div>
@@ -53,6 +53,7 @@
         </ul>
     </script>
 
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
