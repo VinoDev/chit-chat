@@ -181,3 +181,9 @@ button:disabled {
     font-weight: 300;
     padding: 12px 24px 0 24px;
 }
+
+.user{
+    border-left: #6b47b8 4px solid;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
