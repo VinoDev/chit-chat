@@ -1,5 +1,6 @@
 const socket = io()
 
+const htmlDOM = document.querySelector('html');
 const messageForm = document.querySelector('.message-form');
 const messageInput = document.querySelector('.message-input');
 const messageButton = messageForm.querySelector('button');
@@ -110,7 +111,8 @@ socket.emit('join', { username, room }, (error) => {
 })
 
 hamButton.addEventListener("click", () => {
-    console.log("bops")
     chatSidebar.classList.toggle("show-chat-sidebar");
     hamButton.classList.toggle("ham-button-close");
 })
+
+htmlDOM.style.height = window.innerHeight;
