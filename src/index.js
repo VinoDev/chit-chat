@@ -32,6 +32,8 @@ io.on('connection', (socket) => {
             room: user.room,
             users: getUsersInRoom(user.room)
         })
+
+        console.log(`${user.username} joined to room ${user.room}`);
     })
 
     socket.on("sendMessage", (message, callback) => {
@@ -43,6 +45,8 @@ io.on('connection', (socket) => {
             return callback("Profanity is not allowed");
         
         io.to(user.room).emit("message", generateMessage(user.username, message));
+
+        console.log(`[${user.room}] ${user.username}: ${message}`);
         callback()
     })
 
@@ -61,6 +65,8 @@ io.on('connection', (socket) => {
                 room: user.room,
                 users: getUsersInRoom(user.room)
             })
+            
+            console.log(`${user.username} left room ${user.room}`);
         }
     })
 })
