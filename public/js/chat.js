@@ -6,6 +6,9 @@ const messageButton = messageForm.querySelector('button');
 const shareLocationButton = document.querySelector('.share-location-button');
 const messages = document.querySelector('.messages');
 
+const hamButton = document.querySelector('.ham-button');
+const chatSidebar = document.querySelector('.chat__sidebar');
+
 const messageTemplate = document.querySelector('.message-template').innerHTML;
 const locationMessageTemplate = document.querySelector('.location-message-template').innerHTML;
 const sidebarTemplate = document.querySelector('.sidebar-template').innerHTML;
@@ -104,4 +107,10 @@ socket.emit('join', { username, room }, (error) => {
         alert(error);
         location.href = '/';
     }
+})
+
+hamButton.addEventListener("click", () => {
+    console.log("bops")
+    chatSidebar.classList.toggle("show-chat-sidebar");
+    hamButton.classList.toggle("ham-button-close");
 })

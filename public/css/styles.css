@@ -22,6 +22,7 @@ body {
 
 h1 {
     margin-bottom: 16px;
+    text-align: center;
 }
 
 label {
@@ -40,15 +41,11 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #000569;
+    background: #2EA690;
     border: none;
     color: white;
     font-size: 16px;
     transition: background .3s ease;
-}
-
-button:hover {
-    background: #1a1f83;
 }
 
 button:disabled {
@@ -163,6 +160,10 @@ button:disabled {
     -webkit-tap-highlight-color: transparent;
 }
 
+.compose button:hover {
+    background: #1A927C;
+}
+
 .compose .icon {
     width: 16px;
     height: 16px;
@@ -192,18 +193,74 @@ button:disabled {
 }
 
 .user{
-    border-left: #1a1f83 4px solid;
+    border-left: #2EA690 4px solid;
     padding-left: 10px;
     margin-bottom: 10px;
 }
 
+.ham-button{
+    display: none;
+}
+
 @media (max-width: 768px){
+    .centered-form__box {
+        box-shadow: 0px 0px 17px 1px #1D1F26;
+        background: #F7F7FA;
+        padding: 24px;
+        width: 250px;
+    }
+
+    .centered-form__box label{
+        font-size: 18px;
+    }
+
+    .centered-form__box label{
+        font-size: 18px;
+    }
+
+    .centered-form__box button{
+        font-size: 18px;
+    }
+
+    /* button:hover{
+        background-color: transparent;
+    } */
+
     .chat__sidebar {
-        display: none;
+        position: absolute;
+        overflow: hidden;
+        width: 100vw;
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+        z-index: 1;
+    }
+
+    .show-chat-sidebar {
+        transform: translateX(0);
     }
 
     .chat__main {
         height: 100vh;   
     }
 
+    .ham-button{
+        display: block;
+        position: absolute;
+        z-index: 1000;
+        background-color: transparent;
+        width: 27px;
+        height: 27px;
+        top: 20px;
+        right: 20px;
+        outline: none;
+        background-image: url("../img/bars-solid.svg");
+        background-size: 100%;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .ham-button-close{
+        background-image: url("../img/times-circle-regular.svg");
+        background-color: transparent;
+        filter: invert(100%) sepia(2%) saturate(495%) hue-rotate(224deg) brightness(115%) contrast(87%);
+    }
 }
