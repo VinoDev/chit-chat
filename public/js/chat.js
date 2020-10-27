@@ -68,13 +68,13 @@ socket.on("roomData", ({ room, users }) => {
 
 messageForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    messageInput.focus();
 
     messageButton.setAttribute("disabled", "disabled");
 
     socket.emit("sendMessage", messageInput.value, (error) => {
 
         messageButton.removeAttribute("disabled");
-        messageInput.focus();
         messageInput.value = "";
 
         if (error)
