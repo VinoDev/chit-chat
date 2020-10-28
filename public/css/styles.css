@@ -50,7 +50,7 @@ button {
 
 button:disabled {
     cursor: default;
-    background: #969bff;
+    background: lightgrey;
 }
 
 /* Join Page Styles */

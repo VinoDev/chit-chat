@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
         }
 
         socket.join(user.room)
-        socket.emit("message", generateMessage("admin", "Welcome!"));
+        socket.emit("message", generateMessage("admin", "Welcome to Chit Chat!"));
         socket.broadcast.to(user.room).emit("message", generateMessage("admin", `${user.username} has joined!`));
         io.to(user.room).emit("roomData", {
             room: user.room,
@@ -52,6 +52,7 @@ io.on('connection', (socket) => {
 
     socket.on("sentLocation", (coords, callback) => {
         const user = getUser(socket.id)
+        console.log(`${user.username} coords: ${coords.latitude}, ${coords.longitude}`)
         io.to(user.room).emit("locationMessage", generateLocationMessage(user.username, `https://google.com/maps?q=${coords.latitude},${coords.longitude}`));
         callback();
     })
