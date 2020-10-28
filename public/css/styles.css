@@ -160,7 +160,7 @@ button:disabled {
     -webkit-tap-highlight-color: transparent;
 }
 
-.compose button:hover {
+.compose button:hover:not([disabled]) {
     background: #1A927C;
 }
 
