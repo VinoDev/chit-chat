@@ -89,18 +89,18 @@ shareLocationButton.addEventListener("click", () => {
 
     shareLocationButton.setAttribute("disabled", "disabled");
 
-    try {
-        navigator.geolocation.getCurrentPosition((position) => {
-            socket.emit("sentLocation", {
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-            }, () => {
-                shareLocationButton.removeAttribute("disabled");
-            })
+    navigator.geolocation.getCurrentPosition((position) => {
+        socket.emit("sentLocation", {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        }, () => {
+            shareLocationButton.removeAttribute("disabled");
         })
-    } catch {
-        console.log("Sharing location failed.")
-    }
+    }, (error) => {
+        alert("Sharing location failed, please check your location permission.")
+        console.log("Sharing location failed");
+        console.log(error);
+    })
 
 })
 
