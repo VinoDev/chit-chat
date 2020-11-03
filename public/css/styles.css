@@ -246,7 +246,7 @@ button:disabled {
     .ham-button{
         display: block;
         position: absolute;
-        z-index: 1000;
+        z-index: 2;
         background-color: transparent;
         width: 27px;
         height: 27px;
@@ -260,7 +260,8 @@ button:disabled {
 
     .ham-button-close{
         background-image: url("../img/times-circle-regular.svg");
-        background-color: transparent;
+        /* background-color: transparent; */
+        z-index: 2;
         filter: invert(100%) sepia(2%) saturate(495%) hue-rotate(224deg) brightness(115%) contrast(87%);
     }
 }
