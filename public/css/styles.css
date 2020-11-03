@@ -240,19 +240,19 @@ button:disabled {
     }
 
     .chat__main {
-        height: 95vh;   
+        height: 94vh;   
     }
 
     .ham-button{
         display: block;
         position: absolute;
-        z-index: 2;
         background-color: transparent;
         width: 27px;
         height: 27px;
         top: 20px;
         right: 20px;
         outline: none;
+        z-index: 2;
         background-image: url("../img/bars-solid.svg");
         background-size: 100%;
         -webkit-tap-highlight-color: transparent;
@@ -260,8 +260,6 @@ button:disabled {
 
     .ham-button-close{
         background-image: url("../img/times-circle-regular.svg");
-        /* background-color: transparent; */
-        z-index: 2;
         filter: invert(100%) sepia(2%) saturate(495%) hue-rotate(224deg) brightness(115%) contrast(87%);
     }
 }
